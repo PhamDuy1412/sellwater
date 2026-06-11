@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LowLands – Đặt đồ uống online</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+<header class="header">
+  <div class="logo">
+    <div class="logo-dot">🥤</div>
+    LowLands
+  </div>
+  <div class="ship-badge">🚀 Freeship đơn từ 150k</div>
+
+  <!-- USER / LOGIN BUTTON -->
+  <div class="header-user-wrap" id="hdUserWrap">
+    <button class="btn-login-hd" id="btnLoginHd" onclick="moDangNhap('login')">👤 Đăng nhập</button>
+    <button class="user-hd-btn" id="userHdBtn" onclick="moTatMenuNguoiDung()">
+      <div class="uav" id="hdAv">?</div>
+      <span id="hdName">User</span>
+    </button>
+    <div class="user-dropdown" id="userDd">
+      <div class="dd-head">
+        <div class="dd-av" id="ddAv">?</div>
+        <div style="min-width:0">
+          <div class="dd-name" id="ddName">—</div>
+          <div class="dd-email" id="ddEmail">—</div>
+        </div>
+      </div>
+      <div class="dd-sep"></div>
+      <button class="dd-item" onclick="xemDonHangCuaToi()">📋 Đơn hàng của tôi</button>
+      <button class="dd-item" onclick="xemHoSo()">👤 Tài khoản</button>
+      <div class="dd-sep"></div>
+      <button class="dd-item red" onclick="dangXuat()">🚪 Đăng xuất</button>
+    </div>
+  </div>
+
+  <button class="cart-btn" onclick="moTatGioHang()">
+    🛒 Giỏ hàng
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+</header>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">✨ Giao hàng 30–45 phút</div>
+    <h1 class="hero-title">
+      Thức uống<br/>
+      <span class="hi">tươi ngon</span><br/>
+      <span class="lo">tận nơi</span>
+    </h1>
+    <p class="hero-sub">
+      Hơn 50 loại đồ uống handmade từ nguyên liệu tươi.<br/>
+      Đặt ngay — giao trong tích tắc.
+    </p>
+    <div class="hero-actions">
+      <button class="btn-cta" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">
+        Đặt ngay <span class="arrow">→</span>
+      </button>
+      <div class="hero-info">
+        <span>⭐ 4.9 (2.8k đánh giá)</span>
+        <span>📍 Giao toàn TP</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="bubble b1">🧋</div>
+    <div class="bubble b2">☕</div>
+    <div class="bubble b3">🍊</div>
+    <div class="bubble b4">🥭</div>
+    <div class="bubble b5">🍵</div>
+  </div>
+</section>
+
+<!-- Wave divider -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,0 C480,70 960,70 1440,0 L1440,70 L0,70 Z" fill="#fffcf7"/>
+  </svg>
+</div>
+
+<!-- =====================================================
+     PROMO STRIP
+===================================================== -->
+<div class="promo-strip">
+  <div class="promo-item">🚀 Freeship đơn từ 150,000₫</div>
+  <div class="promo-item">🕐 Giao 30–45 phút</div>
+  <div class="promo-item">🌿 Nguyên liệu tươi 100%</div>
+  <div class="promo-item">🎁 Giảm 10% đơn đầu tiên</div>
+</div>
+
+<!-- =====================================================
+     CATEGORY NAV
+===================================================== -->
+<div class="cat-nav-wrap" id="catNav">
+  <nav class="cat-nav" id="catNavInner"></nav>
+</div>
+
+<!-- =====================================================
+     PRODUCTS
+===================================================== -->
+<section class="products-section" id="menu">
+  <div class="section-header">
+    <h2 class="section-title" id="sectionTitle">Tất cả đồ uống</h2>
+    <span class="section-count" id="sectionCount"></span>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand"><div class="dot">🥤</div> LowLands</div>
+      <p class="footer-desc">Thức uống handmade tươi ngon, làm từ nguyên liệu tự nhiên chọn lọc. Giao tận nơi nhanh chóng, uy tín.</p>
+      <div class="footer-contact">
+        <span>📞 0909 123 456</span>
+        <span>📧 hello@lowlands.vn</span>
+        <span>📍 696 Hoàng Hoa Thám, Ngọc Hà, Hà Nội</span>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Thực đơn</div>
+      <div class="footer-links">
+        <span>Trà sữa</span><span>Cà phê</span>
+        <span>Nước ép</span><span>Sinh tố</span>
+        <span>Trà & Đá xay</span>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Hỗ trợ</div>
+      <div class="footer-links">
+        <span>Theo dõi đơn hàng</span>
+        <span>Chính sách hoàn tiền</span>
+        <span>Câu hỏi thường gặp</span>
+        <span>Liên hệ</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 LowLands. Yêu thương từng ly. 🥤</div>
+</footer>
+
+<!-- =====================================================
+     CART DRAWER
+===================================================== -->
+<div class="cart-overlay" id="cartOverlay" onclick="moTatGioHang()"></div>
+<div class="cart-drawer" id="cartDrawer">
+
+  <div class="drawer-header">
+    <div class="drawer-title">🛒 Giỏ hàng <span id="drawerCount" style="font-family:var(--font-b);font-size:14px;font-weight:600;color:var(--text2)"></span></div>
+    <button class="drawer-close" onclick="moTatGioHang()">✕</button>
+  </div>
+
+  <!-- Empty state -->
+  <div class="cart-empty-state" id="cartEmptyState">
+    <div class="cart-empty-icon">🛒</div>
+    <div style="font-weight:700;font-size:16px">Giỏ hàng trống</div>
+    <div style="color:var(--text2);font-size:13px">Hãy chọn thức uống yêu thích!</div>
+    <button onclick="moTatGioHang()" class="btn-cta" style="margin-top:16px;padding:12px 28px;font-size:14px">Chọn ngay →</button>
+  </div>
+
+  <!-- Items -->
+  <div class="drawer-items" id="drawerItems" style="display:none"></div>
+
+  <!-- Footer -->
+  <div class="drawer-footer" id="drawerFooter" style="display:none">
+
+    <!-- Delivery form -->
+    <div class="delivery-form">
+      <div class="d-title">📦 Thông tin giao hàng</div>
+      <div class="form-row">
+        <input class="fi" id="fName"    placeholder="Họ và tên *" />
+        <input class="fi" id="fPhone"   placeholder="Số điện thoại *" type="tel"/>
+      </div>
+      <div class="form-row">
+        <input class="fi full" id="fAddr"  placeholder="Địa chỉ giao hàng *" />
+      </div>
+      <div class="form-row">
+        <input class="fi full" id="fNote"  placeholder="Ghi chú (tuỳ chọn: ít đường, nhiều đá...)" />
+      </div>
+    </div>
+
+    <!-- Totals -->
+    <div class="total-row"><span>Tạm tính</span><span id="subtotalLabel">0 ₫</span></div>
+    <div class="total-row" id="feeRow"><span>Phí giao hàng</span><span id="feeLabel">20,000 ₫</span></div>
+    <div class="total-row" id="freeRow" style="display:none;color:var(--green)"><span>Phí giao hàng</span><span>🎉 Miễn phí</span></div>
+
+    <div class="grand-row">
+      <span class="grand-label">Tổng cộng</span>
+      <span class="grand-price" id="grandLabel">0 ₫</span>
+    </div>
+
+    <button class="btn-order" id="btnOrder" onclick="datHang()">
+      ✓ Đặt hàng ngay
+    </button>
+  </div>
+</div>
+
+<!-- =====================================================
+     SUCCESS OVERLAY
+===================================================== -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-card">
+    <div class="success-icon">🎉</div>
+    <h2 class="success-title">Đặt hàng thành công!</h2>
+    <p class="success-sub">Cảm ơn bạn đã tin tưởng LowLands.<br/>Đơn hàng đang được chuẩn bị.</p>
+    <div class="order-num">Mã đơn: <strong id="orderNum">#SG0001</strong></div>
+    <div class="eta-badge" id="successEtaBadge">🏍️ Dự kiến giao: <span id="successEtaTime">đang tính...</span></div>
+    <button class="btn-back" onclick="theoDoiTuThanhCong()" style="margin-bottom:10px;background:var(--green)">🏍️ Theo dõi đơn hàng</button>
+    <button class="btn-back" onclick="dongThanhCong()">← Tiếp tục mua sắm</button>
+  </div>
+</div>
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+<div class="toast-container" id="toastContainer"></div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+<!-- =====================================================
+     AUTH MODAL
+===================================================== -->
+<div class="auth-overlay" id="authOverlay">
+  <div class="auth-card">
+    <div class="auth-top">
+      <div class="auth-brand"><div class="abd">🥤</div>LowLands</div>
+      <button class="auth-x" onclick="dongDangNhap()">✕</button>
+    </div>
+    <div class="auth-hl" id="authHl">Chào mừng<br/>trở lại! 👋</div>
+    <div class="auth-sub" id="authSub">Đăng nhập để đặt hàng nhanh hơn</div>
+    <div class="auth-tabs">
+      <button class="a-tab on" id="atab-login"    onclick="chuyenTab('login')">Đăng nhập</button>
+      <button class="a-tab"    id="atab-register" onclick="chuyenTab('register')">Đăng ký</button>
+    </div>
+    <div class="auth-msg" id="authMsg"></div>
+
+    <!-- ── LOGIN ── -->
+    <div class="a-form on" id="aform-login">
+      <div class="a-field">
+        <label>Email</label>
+        <input class="a-inp" type="text" id="lEmail" placeholder="email@example.com"
+               onkeydown="if(event.key==='Enter')dangNhap()"/>
+      </div>
+      <div class="a-field">
+        <label>Mật khẩu</label>
+        <div class="pw-wrap">
+          <input class="a-inp" type="password" id="lPw" placeholder="Tối thiểu 6 ký tự"
+                 onkeydown="if(event.key==='Enter')dangNhap()"/>
+          <button class="pw-eye" onclick="batTatMatKhau('lPw',this)" tabindex="-1">👁</button>
+        </div>
+      </div>
+      <div class="a-opts">
+        <label class="rem-me"><input type="checkbox" id="remMe"/> Ghi nhớ đăng nhập</label>
+        <button class="a-forgot" onclick="hienThongBao('Tính năng đang phát triển 🚧','warning')">Quên mật khẩu?</button>
+      </div>
+      <button class="a-submit" onclick="dangNhap()">Đăng nhập →</button>
+      <div class="a-hint">
+        🧪 <strong>Tài khoản thử:</strong> test@sipgo.vn  /  <strong>123456</strong>
+      </div>
+      <div class="a-switch">Chưa có tài khoản? <button onclick="chuyenTab('register')">Đăng ký ngay</button></div>
+    </div>
+
+    <!-- ── REGISTER ── -->
+    <div class="a-form" id="aform-register">
+      <div class="a-row2">
+        <div class="a-field">
+          <label>Họ và tên *</label>
+          <input class="a-inp" type="text" id="rName" placeholder="Nguyễn Văn A"/>
+        </div>
+        <div class="a-field">
+          <label>Số điện thoại *</label>
+          <input class="a-inp" type="tel" id="rPhone" placeholder="090 xxx xxxx"/>
+        </div>
+      </div>
+      <div class="a-field">
+        <label>Email *</label>
+        <input class="a-inp" type="email" id="rEmail" placeholder="email@example.com"/>
+      </div>
+      <div class="a-row2">
+        <div class="a-field">
+          <label>Mật khẩu *</label>
+          <div class="pw-wrap">
+            <input class="a-inp" type="password" id="rPw" placeholder="••••••••"/>
+            <button class="pw-eye" onclick="batTatMatKhau('rPw',this)" tabindex="-1">👁</button>
+          </div>
+        </div>
+        <div class="a-field">
+          <label>Xác nhận *</label>
+          <input class="a-inp" type="password" id="rPwC" placeholder="••••••••"
+                 onkeydown="if(event.key==='Enter')dangKy()"/>
+        </div>
+      </div>
+      <button class="a-submit" onclick="dangKy()">Tạo tài khoản →</button>
+      <div class="a-terms">Đăng ký đồng nghĩa bạn đồng ý <a href="#">Điều khoản</a> & <a href="#">Bảo mật</a> của chúng tôi.</div>
+      <div class="a-switch" style="margin-top:10px">Đã có tài khoản? <button onclick="chuyenTab('login')">Đăng nhập</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================
+     MY ORDERS MODAL
+===================================================== -->
+<div class="orders-overlay" id="ordersOverlay">
+  <div class="orders-modal">
+    <div class="om-head">
+      <h3>📋 Đơn hàng của tôi</h3>
+      <button class="om-close" onclick="dongDonHangCuaToi()">✕</button>
+    </div>
+    <div class="om-body" id="omBody"></div>
+  </div>
+</div>
+
+<!-- =====================================================
+     PROFILE MODAL
+===================================================== -->
+<div class="profile-overlay" id="profileOverlay">
+  <div class="profile-modal">
+    <div class="pm-head">
+      <h3>👤 Tài khoản của tôi</h3>
+      <button class="pm-close" onclick="dongHoSo()">✕</button>
+    </div>
+    <div class="pm-body">
+      <div class="pm-av-row">
+        <div class="pm-av" id="pmAv">?</div>
+        <div>
+          <div class="pm-av-name" id="pmAvName">—</div>
+          <div class="pm-av-email" id="pmAvEmail">—</div>
+        </div>
+      </div>
+      <div class="pm-field"><label>Họ và tên</label><input class="pm-inp" id="pmName" placeholder="Nguyễn Văn A"/></div>
+      <div class="pm-field"><label>Số điện thoại</label><input class="pm-inp" type="tel" id="pmPhone" placeholder="090 xxx xxxx"/></div>
+      <div class="pm-field"><label>Địa chỉ mặc định</label><input class="pm-inp" id="pmAddr" placeholder="123 Đường ABC, Quận 1..."/></div>
+      <button class="pm-save" onclick="luuHoSo()">💾 Lưu thay đổi</button>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================
+     ORDER TRACKING MODAL
+===================================================== -->
+<div class="tracking-overlay" id="trackingOverlay">
+  <div class="tracking-modal">
+    <div class="tm-head">
+      <h3>🏍️ Theo dõi đơn hàng</h3>
+      <button class="tm-close" onclick="dongTheoDoi()">✕</button>
+    </div>
+    <div class="tm-body">
+      <div class="tm-order-info">
+        <div class="tm-order-num" id="tmOrderNum">#SG0000</div>
+        <div class="tm-order-date" id="tmOrderDate">—</div>
+      </div>
+
+      <!-- Real-time ETA card -->
+      <div class="tm-eta-card" id="tmEtaCard">
+        <div class="tm-eta-left">
+          <div class="tm-eta-icon" id="tmEtaIcon">🕐</div>
+          <div>
+            <div class="tm-eta-label" id="tmEtaLabel">Dự kiến giao hàng</div>
+            <div class="tm-eta-time" id="tmEtaTime">--:--</div>
+          </div>
+        </div>
+        <div class="tm-eta-right" id="tmEtaRemain">--</div>
+      </div>
+
+      <div class="tm-countdown" id="tmCountdown">
+        <div class="tm-countdown-icon" id="tmCountIcon">⌛</div>
+        <div class="tm-countdown-text">
+          <div class="tm-countdown-label" id="tmCountLabel">Thoi gian con lai den buoc tiep theo</div>
+          <div class="tm-countdown-time" id="tmCountTime">--:--</div>
+          <div class="tm-progress-bar"><div class="tm-progress-fill" id="tmProgressFill" style="width:0%"></div></div>
+        </div>
+      </div>
+      <div class="tm-steps">
+        <div class="tm-step" id="tstep-0">
+          <div class="tm-step-dot">1</div>
+          <div class="tm-step-label">Chờ xác nhận</div>
+          <div class="tm-step-desc">Đỡn hàng vừa được ghi nhận, chờ cửa hàng xác nhận</div>
+          <div class="tm-step-time" id="ttime-0"></div>
+        </div>
+        <div class="tm-step" id="tstep-1">
+          <div class="tm-step-dot">2</div>
+          <div class="tm-step-label">Chờ Lấy Hàng</div>
+          <div class="tm-step-desc">Đỡn đã xác nhận, đang chuẩn bị và đóng gói</div>
+          <div class="tm-step-time" id="ttime-1"></div>
+        </div>
+        <div class="tm-step" id="tstep-2">
+          <div class="tm-step-dot">3</div>
+          <div class="tm-step-label">Chờ giao Hàng</div>
+          <div class="tm-step-desc">Shipper đã nhận hàng và đang trên đường giao</div>
+          <div class="tm-step-time" id="ttime-2"></div>
+        </div>
+        <div class="tm-step" id="tstep-3">
+          <div class="tm-step-dot">4</div>
+          <div class="tm-step-label">Giao hàng thành công</div>
+          <div class="tm-step-desc">Đỡn hàng đã được giao tới tay bạn</div>
+          <div class="tm-step-time" id="ttime-3"></div>
+        </div>
+        <div class="tm-step" id="tstep-4">
+          <div class="tm-step-dot">5</div>
+          <div class="tm-step-label">Đánh giá</div>
+          <div class="tm-step-desc">Chia sẻ trải nghiệm của bạn</div>
+          <div class="tm-step-time" id="ttime-4"></div>
+        </div>
+      </div>
+      <div class="tm-review" id="tmReviewBox" style="display:none">
+        <div class="tm-review-title">⭐ Bạn cảm thấy thế nào?</div>
+        <div class="star-row" id="starRow">
+          <button class="star-btn" onclick="chonSao(1)">⭐</button>
+          <button class="star-btn" onclick="chonSao(2)">⭐</button>
+          <button class="star-btn" onclick="chonSao(3)">⭐</button>
+          <button class="star-btn" onclick="chonSao(4)">⭐</button>
+          <button class="star-btn" onclick="chonSao(5)">⭐</button>
+        </div>
+        <textarea id="reviewText" placeholder="Góp ý của bạn về đồ uống, tốc độ giao hàng, thái độ phục vụ..."></textarea>
+        <button class="btn-submit-review" onclick="guiDanhGia()">Gửi đánh giá ✓</button>
+        <div class="review-done" id="reviewDone">
+          <div class="review-done-icon">🙏</div>
+          <div class="review-done-text">Cảm ơn bạn đã đánh giá! LowLands sẽ không ngừng cải thiện.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================
+     CONFIRM DIALOG
+===================================================== -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <div class="confirm-icon">🗑️</div>
+    <div class="confirm-title" id="confirmTitle">Xóa đơn hàng?</div>
+    <div class="confirm-desc" id="confirmDesc">Đơn hàng này sẽ bị xóa khỏi lịch sử. Hành động này không thể hoàn tác.</div>
+    <div class="confirm-btns">
+      <button class="confirm-cancel" onclick="dongHopXacNhan()">Hủy</button>
+      <button class="confirm-ok" id="confirmOkBtn" onclick="">Xóa đơn</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
