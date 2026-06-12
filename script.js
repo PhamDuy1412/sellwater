@@ -1,6 +1,3 @@
-// ============================================================
-// DỮ LIỆU SẢN PHẨM
-// ============================================================
 const PRODUCTS = [
   // TRÀO SỮA
   { id:1,  name:'Trà sữa truyền thống', desc:'Vị trà đen đậm đà, trân châu đen dai ngon, ngọt vừa phải',       price:35000, cat:'Trà sữa', emoji:'🧋', bg:'#f5f0ff', badge:'Bán chạy', badgeCls:'badge-selling' },
@@ -40,24 +37,15 @@ const CATEGORIES = ['Tất cả', ...new Set(PRODUCTS.map(p => p.cat))];
 const DELIVERY_FEE = 20000;
 const FREE_SHIP_MIN = 150000;
 
-// ============================================================
-// STATE
-// ============================================================
 let cart          = [];  // [{id, name, price, emoji, bg, qty}]
 let activeCat     = 'Tất cả';
 let cartOpen      = false;
 let orderCounter  = Math.floor(Math.random() * 500) + 1200;
 
-// ============================================================
-// FORMAT
-// ============================================================
 function dinhDangTien(n) {
   return new Intl.NumberFormat('vi-VN').format(n) + ' ₫';
 }
 
-// ============================================================
-// TOAST
-// ============================================================
 function hienThongBao(msg, type) {
   type = type || 'default';
   var el = document.createElement('div');
@@ -71,9 +59,6 @@ function hienThongBao(msg, type) {
   }, 2800);
 }
 
-// ============================================================
-// CATEGORY NAV
-// ============================================================
 function veThanhDanhMuc() {
   var nav = document.getElementById('catNavInner');
   nav.innerHTML = CATEGORIES.map(function(cat) {
@@ -93,9 +78,6 @@ function locTheoNhom(cat) {
   document.getElementById('menu').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// ============================================================
-// PRODUCTS
-// ============================================================
 
 /* Tạo phần điều khiển số lượng cho 1 sản phẩm */
 function taoNutDieuKhien(p) {
@@ -156,9 +138,6 @@ function veSanPham() {
   }).join('');
 }
 
-// ============================================================
-// CART LOGIC
-// ============================================================
 function themVaoGio(id, evt) {
   if (evt) { evt.stopPropagation(); }
   var p = PRODUCTS.find(function(x){ return x.id === id; });
@@ -209,9 +188,6 @@ function tinhTamTinh() {
   return cart.reduce(function(s, c){ return s + c.price * c.qty; }, 0);
 }
 
-// ============================================================
-// CART DRAWER
-// ============================================================
 function moTatGioHang() {
   cartOpen = !cartOpen;
   document.getElementById('cartDrawer').classList.toggle('open', cartOpen);
@@ -267,9 +243,6 @@ function veNoidungGio() {
   document.getElementById('grandLabel').textContent = dinhDangTien(total);
 }
 
-// ============================================================
-// ORDER
-// ============================================================
 function datHang() {
   // Yêu cầu đăng nhập
   if(!curUser){
@@ -390,9 +363,6 @@ function theoDoiTuThanhCong(){
   moTheoDoi(num);
 }
 
-// ============================================================
-// ORDER TRACKING SYSTEM
-// ============================================================
 var activeTrackingTimers = {};
 var currentTrackingNum  = null;
 var countdownInterval   = null;
@@ -682,9 +652,6 @@ function guiDanhGia(){
   hienThongBao('🙏 Cảm ơn bạn đã đánh giá!','success');
 }
 
-// ============================================================
-// STICKY NAV
-// ============================================================
 function xuLyCuon() {
   var nav   = document.getElementById('catNav');
   var navWrap = document.getElementById('catNav');
@@ -692,9 +659,6 @@ function xuLyCuon() {
   navWrap.classList.toggle('scrolled', heroBot < 64);
 }
 
-// ============================================================
-// INIT
-// ============================================================
 function khoiTao() {
   khoiTaoXacThuc();
   veThanhDanhMuc();
@@ -735,9 +699,6 @@ function khoiTao() {
   });
 }
 
-// ============================================================
-// AUTH SYSTEM
-// ============================================================
 var USERS_KEY   = 'sg_users';
 var SESSION_KEY = 'sg_sess';
 var users   = JSON.parse(localStorage.getItem(USERS_KEY)) || [];
