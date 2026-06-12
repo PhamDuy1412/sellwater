@@ -1,33 +1,27 @@
 const PRODUCTS = [
-  // TRÀO SỮA
   { id:1,  name:'Trà sữa truyền thống', desc:'Vị trà đen đậm đà, trân châu đen dai ngon, ngọt vừa phải',       price:35000, cat:'Trà sữa', emoji:'🧋', bg:'#f5f0ff', badge:'Bán chạy', badgeCls:'badge-selling' },
   { id:2,  name:'Trà sữa matcha',        desc:'Matcha Uji Nhật Bản xay mịn, vị đắng thanh dịu nhẹ',             price:45000, cat:'Trà sữa', emoji:'🍵', bg:'#f0fdf4', badge:'Hot 🔥',   badgeCls:'badge-hot' },
   { id:3,  name:'Trà sữa socola',        desc:'Socola Bỉ tan chảy hoà quyện cùng trà thơm',                     price:42000, cat:'Trà sữa', emoji:'🍫', bg:'#fff7ed', badge:'',         badgeCls:'' },
   { id:4,  name:'Trà sữa khoai môn',    desc:'Khoai môn Đà Lạt tươi, màu tím bắt mắt, vị bùi bùi dễ nghiền',  price:40000, cat:'Trà sữa', emoji:'🫐', bg:'#ede9fe', badge:'Mới ✨',   badgeCls:'badge-new' },
   { id:5,  name:'Trà sữa dâu tươi',     desc:'Dâu Đà Lạt xay tươi pha trà kem béo, màu hồng siêu đẹp',        price:45000, cat:'Trà sữa', emoji:'🍓', bg:'#fce7f3', badge:'',         badgeCls:'' },
 
-  // CÀ PHÊ
   { id:6,  name:'Cà phê đen đá',         desc:'Cà phê rang xay đậm vị, thơm nức, thức tỉnh ngay lập tức',       price:29000, cat:'Cà phê',  emoji:'☕', bg:'#fef9c3', badge:'Bán chạy', badgeCls:'badge-selling' },
   { id:7,  name:'Bạc xỉu',               desc:'Cà phê sữa béo ngậy theo kiểu Sài Gòn, cổ điển không bao giờ lỗi thời', price:35000, cat:'Cà phê', emoji:'🥛', bg:'#fff7ed', badge:'', badgeCls:'' },
   { id:8,  name:'Cà phê muối',           desc:'Xu hướng từ Huế — vị mặn ngọt hòa quyện khó quên',               price:39000, cat:'Cà phê',  emoji:'🧂', bg:'#f0f9ff', badge:'Hot 🔥',   badgeCls:'badge-hot' },
   { id:9,  name:'Cappuccino',            desc:'Espresso Ý, lớp milk foam mịn mượt như mây, topping quế nhẹ',    price:49000, cat:'Cà phê',  emoji:'🫖', bg:'#fce7f3', badge:'Mới ✨',   badgeCls:'badge-new' },
 
-  // NƯỚC ÉP
   { id:10, name:'Nước cam tươi',          desc:'Cam Úc nguyên chất 100%, ép tươi theo từng đơn, không đường thêm', price:39000, cat:'Nước ép', emoji:'🍊', bg:'#fff7ed', badge:'',         badgeCls:'' },
   { id:11, name:'Nước ép dưa hấu',       desc:'Dưa hấu mùa hè mát lạnh, vị ngọt tự nhiên giải nhiệt tức thì',  price:32000, cat:'Nước ép', emoji:'🍉', bg:'#fce7f3', badge:'Mùa hè 🌞', badgeCls:'badge-season' },
   { id:12, name:'Nước ép táo gừng',       desc:'Táo New Zealand + gừng tươi, combo tăng đề kháng siêu tốt',     price:42000, cat:'Nước ép', emoji:'🍎', bg:'#f0fdf4', badge:'',         badgeCls:'' },
 
-  // SINH TỐ
   { id:13, name:'Sinh tố bơ',            desc:'Bơ chín Đắk Lắk + sữa tươi, béo thơm tự nhiên, no lâu',        price:49000, cat:'Sinh tố',  emoji:'🥑', bg:'#f0fdf4', badge:'Bán chạy', badgeCls:'badge-selling' },
   { id:14, name:'Sinh tố xoài',          desc:'Xoài cát Hòa Lộc chín vàng, ngọt thanh, thơm lừng',             price:45000, cat:'Sinh tố',  emoji:'🥭', bg:'#fff7ed', badge:'',         badgeCls:'' },
   { id:15, name:'Sinh tố dâu kem',        desc:'Dâu Đà Lạt tươi + kem tươi béo ngậy, màu hồng cực đẹp',       price:52000, cat:'Sinh tố',  emoji:'🍓', bg:'#fce7f3', badge:'Hot 🔥',   badgeCls:'badge-hot' },
 
-  // TRÀ
   { id:16, name:'Trà đào cam sả',        desc:'Bộ ba thanh mát — đào mềm, cam thơm, sả cay nhẹ',               price:35000, cat:'Trà',      emoji:'🍑', bg:'#fff7ed', badge:'Bán chạy', badgeCls:'badge-selling' },
   { id:17, name:'Trà vải bạc hà',        desc:'Vải ngọt thanh + bạc hà the lạnh, combo thanh mát nhất hè',     price:35000, cat:'Trà',      emoji:'🌿', bg:'#f0fdf4', badge:'Mới ✨',   badgeCls:'badge-new' },
   { id:18, name:'Trà hoa cúc mật ong',   desc:'Hoa cúc khô ủ với mật ong nguyên chất, dịu nhẹ thư giãn',      price:38000, cat:'Trà',      emoji:'🌼', bg:'#fefce8', badge:'',         badgeCls:'' },
 
-  // ĐÁ XAY
   { id:19, name:'Đá xay matcha đậu đỏ',  desc:'Matcha đá xay mịn + đậu đỏ bùi thơm + kem sữa tươi phủ trên',price:55000, cat:'Đá xay',   emoji:'🍦', bg:'#f0fdf4', badge:'Hot 🔥',   badgeCls:'badge-hot' },
   { id:20, name:'Đá xay socola',          desc:'Socola đậm đà đá xay + topping sốt socola + whipping kem tươi', price:55000, cat:'Đá xay',   emoji:'🍧', bg:'#fff7ed', badge:'',         badgeCls:'' },
   { id:21, name:'Đá xay caramel',         desc:'Espresso + đá xay + sốt caramel ngọt bùi, tỉnh ngủ tức thì',  price:59000, cat:'Đá xay',   emoji:'🍮', bg:'#fef9c3', badge:'Mới ✨',   badgeCls:'badge-new' },
@@ -37,7 +31,7 @@ const CATEGORIES = ['Tất cả', ...new Set(PRODUCTS.map(p => p.cat))];
 const DELIVERY_FEE = 20000;
 const FREE_SHIP_MIN = 150000;
 
-let cart          = [];  // [{id, name, price, emoji, bg, qty}]
+let cart          = [];
 let activeCat     = 'Tất cả';
 let cartOpen      = false;
 let orderCounter  = Math.floor(Math.random() * 500) + 1200;
@@ -78,8 +72,6 @@ function locTheoNhom(cat) {
   document.getElementById('menu').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-
-/* Tạo phần điều khiển số lượng cho 1 sản phẩm */
 function taoNutDieuKhien(p) {
   var inCart = cart.find(function(c){ return c.id === p.id; });
   if (inCart) {
@@ -92,7 +84,6 @@ function taoNutDieuKhien(p) {
   return '<button class="btn-add" onclick="themVaoGio(' + p.id + ',event)" title="Thêm vào giỏ">+</button>';
 }
 
-/* Chỉ cập nhật phần nút của 1 card — KHÔNG re-render toàn bộ lưới */
 function capNhatNutCard(id) {
   var footer = document.getElementById('pcf-' + id);
   if (!footer) return;
@@ -151,7 +142,7 @@ function themVaoGio(id, evt) {
   }
 
   capNhatGioHang();
-  capNhatNutCard(id);   // ← chỉ cập nhật đúng card này
+  capNhatNutCard(id);
   hienThongBao('✓ Đã thêm: ' + p.name, 'success');
 }
 
@@ -166,14 +157,14 @@ function doiSoLuong(id, delta, evt) {
   }
 
   capNhatGioHang();
-  capNhatNutCard(id);   // ← chỉ cập nhật đúng card này
+  capNhatNutCard(id);
   if (cartOpen) veNoidungGio();
 }
 
 function xoaKhoiGio(id) {
   cart = cart.filter(function(c){ return c.id !== id; });
   capNhatGioHang();
-  capNhatNutCard(id);   // ← chỉ cập nhật đúng card này
+  capNhatNutCard(id);
   veNoidungGio();
 }
 
@@ -244,7 +235,6 @@ function veNoidungGio() {
 }
 
 function datHang() {
-  // Yêu cầu đăng nhập
   if(!curUser){
     if(cartOpen) moTatGioHang();
     moDangNhap('login');
@@ -266,12 +256,10 @@ function datHang() {
   }
   if (cart.length === 0) { hienThongBao('Giỏ hàng trống!', 'warning'); return; }
 
-  // Simulate ordering
   var btn = document.getElementById('btnOrder');
   btn.disabled = true;
   btn.textContent = 'Đang xử lý...';
 
-  // Capture cart snapshot before clearing
   var cartSnap = cart.map(function(c){ return {name:c.name,emoji:c.emoji,qty:c.qty,price:c.price}; });
   var sub2 = tinhTamTinh();
   var isFree2 = sub2 >= FREE_SHIP_MIN;
@@ -284,12 +272,10 @@ function datHang() {
 
     var nowTs = Date.now();
     var itemCount = cartSnap.reduce(function(s,c){return s+c.qty;},0);
-    // Step timing (ms): confirm=1min, pickup=3min*items, delivery=15min
     var confirmMs  = 1 * 60 * 1000;
     var pickupMs   = itemCount * 3 * 60 * 1000;
     var deliverMs  = 15 * 60 * 1000;
 
-    // Save to user history
     if(curUser){
       if(!curUser.orders) curUser.orders=[];
       var newOrder = {
@@ -302,7 +288,7 @@ function datHang() {
         confirmMs:  confirmMs,
         pickupMs:   pickupMs,
         deliverMs:  deliverMs,
-        trackStep: 0,   // 0=waiting,1=confirmed,2=pickup,3=delivery,4=review
+        trackStep: 0,
         stepTimes: [nowTs, 0, 0, 0, 0],
         reviewed: false,
         rating: 0,
@@ -314,16 +300,13 @@ function datHang() {
       localStorage.setItem(USERS_KEY,JSON.stringify(all));
       localStorage.setItem(SESSION_KEY,JSON.stringify(curUser));
 
-      // Kick off auto-progression
       lenLichTienTrangThai(newOrder);
     }
 
-    // Close cart
     cartOpen = false;
     document.getElementById('cartDrawer').classList.remove('open');
     document.getElementById('cartOverlay').classList.remove('open');
 
-    // Show success with real-time ETA
     document.getElementById('successOverlay').classList.add('open');
     (function setSuccessEta(){
       var data = layDonHang(orderNum);
@@ -339,7 +322,6 @@ function datHang() {
         hh + ':' + mm + ' (~' + remaining + ' phút nữa)';
     })();
 
-    // Reset
     cart = [];
     capNhatGioHang();
     veSanPham();
@@ -384,7 +366,6 @@ var STEP_DESCS = [
 ];
 var STEP_ICONS = ['📋','✅','🛵','🎉','⭐'];
 
-/* Get the live order object from storage by num */
 function layDonHang(num){
   var raw = localStorage.getItem(USERS_KEY);
   if(!raw) return null;
@@ -398,7 +379,6 @@ function layDonHang(num){
   return null;
 }
 
-/* Persist step advance */
 function tiepBuocDon(num, toStep){
   var data = layDonHang(num);
   if(!data) return;
@@ -408,7 +388,6 @@ function tiepBuocDon(num, toStep){
   order.stepTimes[toStep] = Date.now();
   data.allUsers[data.ui].orders[data.oi] = order;
   localStorage.setItem(USERS_KEY, JSON.stringify(data.allUsers));
-  // Sync curUser
   if(curUser && curUser.id === data.allUsers[data.ui].id){
     curUser = data.allUsers[data.ui];
     localStorage.setItem(SESSION_KEY, JSON.stringify(curUser));
@@ -416,7 +395,6 @@ function tiepBuocDon(num, toStep){
   if(currentTrackingNum === num) veModalTheoDoi(order);
 }
 
-/* Schedule automatic progression for a new/existing order */
 function lenLichTienTrangThai(order){
   var num = order.num;
   var now = Date.now();
@@ -425,13 +403,9 @@ function lenLichTienTrangThai(order){
   var pickupMs  = order.pickupMs   || 3*60*1000;
   var deliverMs = order.deliverMs  || 15*60*1000;
 
-  // Step0→1 : confirm after confirmMs from creation
   var t1 = created + confirmMs;
-  // Step1→2 : pickup after pickupMs from confirm
   var t2 = t1 + pickupMs;
-  // Step2→3 : delivery after deliverMs from pickup
   var t3 = t2 + deliverMs;
-  // Step3→4 : review immediately after delivery
   var t4 = t3 + 1000;
 
   var schedule = [
@@ -448,8 +422,7 @@ function lenLichTienTrangThai(order){
 
   schedule.forEach(function(s){
     var delay = s.at - Date.now();
-    if(delay <= 0) return; // already passed
-    // Only schedule if order hasn't already reached this step
+    if(delay <= 0) return;
     var data = layDonHang(num);
     if(data && data.order.trackStep >= s.step) return;
 
@@ -463,7 +436,6 @@ function lenLichTienTrangThai(order){
   });
 }
 
-/* Re-schedule all in-progress orders on page load */
 function khoiDongLaiDonCu(){
   var raw = localStorage.getItem(USERS_KEY);
   if(!raw) return;
@@ -475,7 +447,6 @@ function khoiDongLaiDonCu(){
   });
 }
 
-/* Open tracking modal */
 function moTheoDoi(num){
   var data = layDonHang(num);
   if(!data){ hienThongBao('Không tìm thấy đơn hàng','warning'); return; }
@@ -498,7 +469,6 @@ function veModalTheoDoi(order){
 
   var step = order.trackStep || 0;
 
-  // ── Real-time ETA card ──
   var etaCard    = document.getElementById('tmEtaCard');
   var etaIcon    = document.getElementById('tmEtaIcon');
   var etaLabel   = document.getElementById('tmEtaLabel');
@@ -531,7 +501,6 @@ function veModalTheoDoi(order){
     }
   }
 
-  // Update steps
   for(var i=0;i<=4;i++){
     var el = document.getElementById('tstep-'+i);
     if(!el) continue;
@@ -549,7 +518,6 @@ function veModalTheoDoi(order){
     }
   }
 
-  // Review box
   var reviewBox = document.getElementById('tmReviewBox');
   if(step === 4){
     reviewBox.style.display = 'block';
@@ -563,7 +531,6 @@ function veModalTheoDoi(order){
     reviewBox.style.display = 'none';
   }
 
-  // Countdown
   capNhatDemNguoc(order);
 }
 
@@ -618,12 +585,10 @@ function batDauDemNguoc(){
     if(!data){ clearInterval(countdownInterval); return; }
     currentTrackOrder = data.order;
     capNhatDemNguoc(data.order);
-    // Also refresh step dots in case of auto-advance
     veModalTheoDoi(data.order);
   }, 1000);
 }
 
-/* Rating */
 var selectedRating = 0;
 function chonSao(n){
   selectedRating = n;
@@ -667,7 +632,6 @@ function khoiTao() {
 
   window.addEventListener('scroll', xuLyCuon, { passive: true });
 
-  // Close overlays on backdrop click
   ['successOverlay','authOverlay','ordersOverlay','profileOverlay','trackingOverlay','confirmOverlay'].forEach(function(id){
     var el=document.getElementById(id);
     if(el) el.addEventListener('click',function(e){
@@ -679,13 +643,11 @@ function khoiTao() {
     });
   });
 
-  // Close dropdown when clicking outside
   document.addEventListener('click', function(e){
     var wrap=document.getElementById('hdUserWrap');
     if(ddOpen && wrap && !wrap.contains(e.target)) dongMenuNguoiDung();
   });
 
-  // Keyboard ESC closes any open overlay / cart
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       if(cartOpen) moTatGioHang();
@@ -705,7 +667,6 @@ var users   = JSON.parse(localStorage.getItem(USERS_KEY)) || [];
 var curUser = null;
 var ddOpen  = false;
 
-// Seed demo account
 (function(){
   var has = users.some(function(u){ return u.email==='test@sipgo.vn'; });
   if(!has){
@@ -721,7 +682,6 @@ function khoiTaoXacThuc(){
   capNhatHeader();
 }
 
-/* ── OPEN / CLOSE ── */
 function moDangNhap(tab){
   xoaThongBaoLoi();
   chuyenTab(tab||'login');
@@ -737,7 +697,6 @@ function dongDangNhap(){
   document.body.style.overflow='';
 }
 
-/* ── TAB SWITCH ── */
 function chuyenTab(t){
   ['login','register'].forEach(function(n){
     document.getElementById('atab-'+n).classList.toggle('on',n===t);
@@ -750,7 +709,6 @@ function chuyenTab(t){
   xoaThongBaoLoi();
 }
 
-/* ── MESSAGES ── */
 function xoaThongBaoLoi(){
   var el=document.getElementById('authMsg');
   el.className='auth-msg'; el.textContent='';
@@ -758,14 +716,12 @@ function xoaThongBaoLoi(){
 function hienLoi(m){ var el=document.getElementById('authMsg'); el.className='auth-msg err'; el.textContent='⚠ '+m; }
 function hienThanhCongXacThuc(m) { var el=document.getElementById('authMsg'); el.className='auth-msg ok';  el.textContent='✓ '+m; }
 
-/* ── PASSWORD TOGGLE ── */
 function batTatMatKhau(id,btn){
   var inp=document.getElementById(id);
   inp.type=inp.type==='password'?'text':'password';
   btn.textContent=inp.type==='password'?'👁':'🙈';
 }
 
-/* ── LOGIN ── */
 function dangNhap(){
   var em=document.getElementById('lEmail').value.trim().toLowerCase();
   var pw=document.getElementById('lPw').value;
@@ -790,7 +746,6 @@ function dangNhap(){
   if(cartOpen) tuDienForm();
 }
 
-/* ── REGISTER ── */
 function dangKy(){
   var name =document.getElementById('rName').value.trim();
   var email=document.getElementById('rEmail').value.trim().toLowerCase();
@@ -822,7 +777,6 @@ function dangKy(){
   },900);
 }
 
-/* ── LOGOUT ── */
 function dangXuat(){
   curUser=null;
   localStorage.removeItem(SESSION_KEY);
@@ -832,7 +786,6 @@ function dangXuat(){
   hienThongBao('Đã đăng xuất!');
 }
 
-/* ── HEADER UI ── */
 function layVietTat(name){
   return name.split(' ').map(function(w){return w[0]||'';}).join('').toUpperCase().slice(0,2);
 }
@@ -856,7 +809,6 @@ function capNhatHeader(){
   }
 }
 
-/* ── DROPDOWN ── */
 function moTatMenuNguoiDung(){
   ddOpen=!ddOpen;
   document.getElementById('userDd').classList.toggle('open',ddOpen);
@@ -866,7 +818,6 @@ function dongMenuNguoiDung(){
   document.getElementById('userDd').classList.remove('open');
 }
 
-/* ── AUTO-FILL CART FORM ── */
 function tuDienForm(){
   if(!curUser) return;
   var n=document.getElementById('fName');
@@ -877,12 +828,10 @@ function tuDienForm(){
   if(a&&!a.value&&curUser.address) a.value=curUser.address;
 }
 
-/* ── MY ORDERS ── */
 function xemDonHangCuaToi(){
   dongMenuNguoiDung();
   if(!curUser){ moDangNhap('login'); return; }
 
-  // Re-sync from storage
   var all=JSON.parse(localStorage.getItem(USERS_KEY))||[];
   for(var i=0;i<all.length;i++){ if(all[i].id===curUser.id){ curUser=all[i]; break; } }
 
@@ -936,7 +885,6 @@ function dongDonHangCuaToi(){
   document.body.style.overflow='';
 }
 
-/* ── DELETE SINGLE ORDER ── */
 var pendingDeleteNum = null;
 
 function xacNhanXoaDon(num){
@@ -954,12 +902,10 @@ function dongHopXacNhan(){
 function xoaDon(){
   if(!curUser || !pendingDeleteNum) return;
   var num = pendingDeleteNum;
-  // Cancel timers
   if(activeTrackingTimers[num]){
     activeTrackingTimers[num].forEach(function(t){ clearTimeout(t); });
     delete activeTrackingTimers[num];
   }
-  // Remove from orders array
   curUser.orders = (curUser.orders||[]).filter(function(o){ return o.num !== num; });
   var all = JSON.parse(localStorage.getItem(USERS_KEY))||[];
   for(var i=0;i<all.length;i++){
@@ -968,7 +914,6 @@ function xoaDon(){
   localStorage.setItem(USERS_KEY, JSON.stringify(all));
   localStorage.setItem(SESSION_KEY, JSON.stringify(curUser));
   dongHopXacNhan();
-  // Animate removal then re-render
   var card = document.getElementById('oh-'+num.replace('#',''));
   if(card){
     card.style.transition='all 0.3s ease';
@@ -988,7 +933,6 @@ function xoaDon(){
   hienThongBao('🗑️ Đã xóa đơn ' + num,'default');
 }
 
-/* ── PROFILE ── */
 function xemHoSo(){
   dongMenuNguoiDung();
   if(!curUser){ moDangNhap('login'); return; }
